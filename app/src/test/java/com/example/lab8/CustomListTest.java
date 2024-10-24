@@ -59,9 +59,9 @@ public class CustomListTest {
         // check the city is not present anymore
         assertFalse(cityList.hasCity(nCity));
         // checks that it is not possible to delete a city that does not exist
-//        assertThrows(IllegalArgumentException.class, () -> {
-//            cityList.delete(nCity);
-//        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            cityList.delete(nCity);
+        });
     }
 
 
