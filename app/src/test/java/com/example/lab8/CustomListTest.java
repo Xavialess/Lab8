@@ -48,20 +48,32 @@ public class CustomListTest {
 
     @Test
     void testDelete(){
-        CustomList cityList = mockCityList();
+        list = mockCityList();
         City nCity = new City("Calgary", "Alberta");
         // adding a new city
-        cityList.addCity(nCity);
+        list.addCity(nCity);
         // checks if the new city was added
-        assertTrue(cityList.hasCity(nCity));
+        assertTrue(list.hasCity(nCity));
         // delete the city
-        cityList.delete(nCity);
+        list.delete(nCity);
         // check the city is not present anymore
-        assertFalse(cityList.hasCity(nCity));
+        assertFalse(list.hasCity(nCity));
         // checks that it is not possible to delete a city that does not exist
         assertThrows(IllegalArgumentException.class, () -> {
-            cityList.delete(nCity);
+            list.delete(nCity);
         });
+    }
+
+    @Test
+    void testCountCities(){
+        list = mockCityList();
+        // add a new city
+        list.addCity(new City("Vanocuver", "BC"));
+        // count should be 2
+        assertEquals(1, list.countCities());
+        list.addCity(new City("Edmonton", "AB"));
+        assertEquals(2, list.countCities());
+
     }
 
 
