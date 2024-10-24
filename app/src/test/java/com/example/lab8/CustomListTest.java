@@ -38,8 +38,9 @@ public class CustomListTest {
     @Test
     void testHasCity(){
         list = mockCityList();
-        list.addCity(new City("Edmonton", "AB"));
-        assertTrue(list.hasCity("Edmonton"));
+        City city = new City("Edmonton", "AB");
+        list.addCity(city);
+        assertTrue(list.hasCity(city));
 
     }
 
